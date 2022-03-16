@@ -1,5 +1,6 @@
 from bs4 import BeautifulSoup
 import requests
+import csv
 
 product_page_url = "http://books.toscrape.com/catalogue/a-light-in-the-attic_1000/index.html"
 page = requests.get(product_page_url)
@@ -11,10 +12,10 @@ header_titles = [
     "title",
     "price_including_tax",
     "price_excluding_tax",
-    "number_available"
-    "product_description"
-    "category"
-    "review_rating"
+    "number_available",
+    "product_description",
+    "category",
+    "review_rating",
     "image_url"
 ]
 
@@ -33,18 +34,30 @@ product_description = soup.select_one("article.product_page > p").string
 review_rating = soup.find("p", class_="star-rating").get("class")[1]
 image_url = soup.find("img").get("src")
 
+datas = [
+    product_page_url,
+    universal_product_code,
+    title,
+    price_including_tax,
+    price_excluding_tax,
+    number_available,
+    product_description,
+    category,
+    review_rating,
+    image_url
+]
+
+data_dict = {}
+for title, data in zip(header_titles, datas):
+    data_dict[title] = data
 
 
-with open("data.csv", "w") as f:
-    pass
+with open("data.csv", "w", encoding="utf-8") as f:
+    writer = csv.writer(f, delimiter=",")
+    writer.writerow(data_dict)
+    writer.writerow(data_dict.values())
+
 
 if __name__ == "__main__":
-    print(universal_product_code, price_including_tax, price_excluding_tax, available)
-    print(title)
-    print(product_description)
-    print(category)
-    print(image_url)
-    print(review_rating)
-    print(number_available)
-
-    print(header_titles)
+    # print(header_titles)
+    print(data_dict)
