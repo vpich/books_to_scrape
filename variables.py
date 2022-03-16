@@ -5,7 +5,6 @@ product_page_url = "http://books.toscrape.com/catalogue/a-light-in-the-attic_100
 page = requests.get(product_page_url)
 soup = BeautifulSoup(page.content, "html.parser")
 
-
 product_informations = soup.find_all("td")
 universal_product_code = product_informations[0].string
 price_including_tax = product_informations[3].string
@@ -50,3 +49,7 @@ header_titles = [
 data_dict = {}
 for title, data in zip(header_titles, datas):
     data_dict[title] = data
+
+if __name__ == "__main__":
+    # print(header_titles)
+    pass
