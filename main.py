@@ -33,15 +33,18 @@ product_description = soup.select_one("article.product_page > p").string
 review_rating = soup.find("p", class_="star-rating").get("class")[1]
 image_url = soup.find("img").get("src")
 
-print(universal_product_code, price_including_tax, price_excluding_tax, available)
-print(title)
-print(product_description)
-print(category)
-print(image_url)
-print(review_rating)
-print(number_available)
+
 
 with open("data.csv", "w") as f:
     pass
 
-print(header_titles)
+if __name__ == "__main__":
+    print(universal_product_code, price_including_tax, price_excluding_tax, available)
+    print(title)
+    print(product_description)
+    print(category)
+    print(image_url)
+    print(review_rating)
+    print(number_available)
+
+    print(header_titles)
