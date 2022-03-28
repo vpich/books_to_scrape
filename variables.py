@@ -32,24 +32,7 @@ def get_book_datas(product_page_url):
         image_url
     ]
 
-    header_titles = [
-        "product_page_url",
-        "universal_product_code",
-        "title",
-        "price_including_tax",
-        "price_excluding_tax",
-        "number_available",
-        "product_description",
-        "category",
-        "review_rating",
-        "image_url"
-    ]
-
-    data_dict = {}
-    for title, data in zip(header_titles, datas):
-        data_dict[title] = data
-
-    return data_dict
+    return datas
 
 
 if __name__ == "__main__":
