@@ -1,16 +1,29 @@
 from bs4 import BeautifulSoup
 import requests
 
-home_page_url = "http://books.toscrape.com/"
-home_page = requests.get(home_page_url)
-soup = BeautifulSoup(home_page.content, "html.parser")
 
-all_categories = soup.select("ul.nav-list > li > ul > li > a")
+def get_categories(url):
 
-categories_url = []
+    home_page = requests.get(url)
+    soup = BeautifulSoup(home_page.content, "html.parser")
 
-for cat in all_categories:
-    categories_url.append(cat.get("href"))
+    all_categories = soup.select("ul.nav-list > li > ul > li > a")
+
+    categories_url = []
+
+    for cat in all_categories:
+        categories_url.append(cat.get("href"))
+
+    return categories_url
+
+# def check_number_pages(url, page):
+#     page_to_check_url = home_page_url + str(url).replace("index.html", page)
+#     page_to_check = requests.get(page_to_check_url)
+#     if page_to_check.status_code == 200:
+#         return page_to_check_url
+#     else:
+#         return url
+
 
 if __name__ == "__main__":
-    print(categories_url[1])
+    print(get_categories("http://books.toscrape.com/"))
