@@ -25,5 +25,8 @@ def get_categories(url):
 #         return url
 
 
+
+
 if __name__ == "__main__":
-    print(get_categories("http://books.toscrape.com/"))
+    #print(get_categories("http://books.toscrape.com/"))
+    check_number_pages("https://books.toscrape.com/catalogue/category/books/mystery_3/index.html")

@@ -13,7 +13,7 @@ if __name__ == "__main__":
     all_books_url = []
 
     for category in categories_url_list:
-        books_in_category = get_all_books(category)
+        books_in_category = get_all_books_urls(category)
         for book in books_in_category:
             all_books_url.append(book)
 
@@ -30,20 +30,24 @@ if __name__ == "__main__":
         "image_url"
     ]
 
-    all_books_dict = {}
-    for title in header_titles:
-        all_books_dict[title] = []
+    all_books_list = []
 
-    for book in all_books_url:
-        all_books_datas = get_book_datas(book)
-        for title, data in zip(header_titles, all_books_datas):
-            all_books_dict[title].append(data)
+    for book_url in all_books_url:
+        book_data = get_book_datas(book_url)
+        all_books_list.append(book_data)
 
-    with open("data.csv", "w", encoding="utf-8") as f:
+    with open("databis.csv", "w", encoding="utf-8") as f:
         writer = csv.writer(f, delimiter=",")
-        writer.writerow(all_books_dict)
-        writer.writerow(all_books_dict.values())
+        writer.writerow(header_titles)
+        for book in all_books_list:
+            writer.writerow(book)
+        # writer.writerow(all_books_dict)
+        # writer.writerow(all_books_dict.values())
 
+all_books_bis = [
+    {"title": "xxx", "category": "xxx", "image_url": "xxx"},
+    {"title": "xxx", "category": "xxx", "image_url": "xxx"},
+]
 
 # le faire sans images, et sans pagination d'abord
 # problèmes avec les noms des fichiers

@@ -19,7 +19,7 @@ def get_book_datas(product_page_url):
     review_rating = [soup.find("p", class_="star-rating").get("class")[1]]
     image_url = [soup.find("img").get("src")]
 
-    datas = [
+    data = [
         product_page_url,
         universal_product_code,
         title,
@@ -32,7 +32,7 @@ def get_book_datas(product_page_url):
         image_url
     ]
 
-    return datas
+    return data
 
 
 if __name__ == "__main__":
