@@ -1,8 +1,9 @@
 import csv
 
+from get_images import get_images
 from variables import get_book_datas
 from get_categories_url import get_categories
-from get_books_url import get_all_books
+from get_books_url import get_all_books_urls
 
 home_page_url = "http://books.toscrape.com/"
 
@@ -36,19 +37,14 @@ if __name__ == "__main__":
         book_data = get_book_datas(book_url)
         all_books_list.append(book_data)
 
-    with open("databis.csv", "w", encoding="utf-8") as f:
+        get_images(book_data[9], book_data[1])
+
+    with open("data.csv", "w", encoding="utf-8") as f:
         writer = csv.writer(f, delimiter=",")
         writer.writerow(header_titles)
         for book in all_books_list:
             writer.writerow(book)
-        # writer.writerow(all_books_dict)
-        # writer.writerow(all_books_dict.values())
 
-all_books_bis = [
-    {"title": "xxx", "category": "xxx", "image_url": "xxx"},
-    {"title": "xxx", "category": "xxx", "image_url": "xxx"},
-]
 
-# le faire sans images, et sans pagination d'abord
-# problèmes avec les noms des fichiers
-# problème avec la pagination
+
+# oubli: chaque categorie doit être un fichier dans un fichier csv différent
