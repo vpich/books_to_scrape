@@ -15,9 +15,14 @@ def get_book_datas(product_page_url):
 
     title = soup.find("h1").string
     category = soup.select("li > a")[2].string
-    product_description = soup.select_one("article.product_page > p").string
+    product_description = soup.select_one("article.product_page > p")
     review_rating = soup.find("p", class_="star-rating").get("class")[1]
     image_url = "http://books.toscrape.com/" + str(soup.find("img").get("src")).replace("../..", "")
+
+    if product_description is not None:
+        product_description = soup.select_one("article.product_page > p").string
+    else:
+        product_description = ""
 
     data = [
         product_page_url,
