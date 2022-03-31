@@ -2,7 +2,7 @@ from bs4 import BeautifulSoup
 import requests
 
 
-def get_book_datas(product_page_url):
+def get_book_data(product_page_url):
     page = requests.get(product_page_url)
     soup = BeautifulSoup(page.content, "html.parser")
 
@@ -41,4 +41,4 @@ def get_book_datas(product_page_url):
 
 
 if __name__ == "__main__":
-    print(get_book_datas("https://books.toscrape.com/catalogue/avatar-the-last-airbender-smoke-and-shadow-part-3-smoke-and-shadow-3_881/index.html"))
+    print(get_book_data("https://books.toscrape.com/catalogue/avatar-the-last-airbender-smoke-and-shadow-part-3-smoke-and-shadow-3_881/index.html"))
