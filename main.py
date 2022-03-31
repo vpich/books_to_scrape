@@ -27,22 +27,7 @@ if __name__ == "__main__":
         if book_category not in all_categories_list:
             all_categories_list.append(book_category)
 
-    #     get_images(book_data[9], book_data[1], book_category)
-    # save_data_to_csv("data.csv", all_books_list)
-
-
-    # Le code ci-dessous devrait permettre de séparer chaque catégorie dans des fichiers csv disctincts, mais ne fonctionne pas
-
-    # actuellement j'ai une liste de tous les livres, et chaque livre contient la liste de toutes ses data
-    # je souhaite ranger les livres dans des liste pour chaque catégorie
-
-    # je récupère la liste de toutes les catégorie
-    # pour chaque livre
-        # je compare si sa catégorie corresponds à l'indice i
-        # si oui, je l'ajoute à la liste
-    # je crée le fichier csv pour la catégorie
-    # j'incrémente 1
-    # je recommence la boucle pour faire la comparaison sur l'indice suivant
+        get_images(book_data[9], book_data[1], book_category)
 
     i = 0
     while i < len(all_categories_list):
@@ -50,12 +35,5 @@ if __name__ == "__main__":
         for book_data in all_books_list:
             if book_data[7] == all_categories_list[i]:
                 books_in_cat.append(book_data)
-            save_data_to_csv(book_data[7], books_in_cat)
+                save_data_to_csv(book_data[7], books_in_cat)
         i += 1
-
-
-
-
-
-
-
