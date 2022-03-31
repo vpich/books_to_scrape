@@ -1,6 +1,5 @@
 from bs4 import BeautifulSoup
 import requests
-from get_categories_url import get_categories
 
 home_page_url = "http://books.toscrape.com/"
 
@@ -35,4 +34,4 @@ def get_all_books_urls(category):
 
 
 if __name__ == "__main__":
-    print(get_all_books_urls(get_categories(home_page_url)[0]))
+    print(get_all_books_urls("catalogue/category/books/travel_2/index.html"))
