@@ -17,7 +17,7 @@ def save_data_to_csv(csv_name, books_list):
         "image_url"
     ]
 
-    csv_directory = Path("csv")
+    csv_directory = Path("../csv")
     if not csv_directory.exists():
         csv_directory.mkdir()
 
