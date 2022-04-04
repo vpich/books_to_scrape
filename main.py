@@ -1,8 +1,8 @@
-from get_images import save_images
-from save_data_to_csv import save_data_to_csv
-from variables import get_book_data
-from get_categories_url import get_categories_urls
-from get_books_url import get_all_books_urls
+from modules.save_images import save_images
+from modules.save_data_to_csv import save_data_to_csv
+from modules.variables import get_book_data
+from modules.get_categories_urls import get_categories_urls
+from modules.get_books_urls import get_all_books_urls
 
 HOME_PAGE_URL = "http://books.toscrape.com/"
 
