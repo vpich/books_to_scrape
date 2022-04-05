@@ -4,13 +4,26 @@
 
 ## About The Project
 books_to_scrape permet de récupérer des informations sur les livres du site exemple https://books.toscrape.com/ et des les enregistrer dans un fichier csv pour chaque catégorie de livres.
-Il permet également de télécharger toutes les images de ces livres dans un dossier.
+Il permet également de télécharger toutes les images de ces livres dans un dossier, trié par catégorie.
 
 ## Technologies
-- Python
+- Python 3.10
 
 ## Getting Started
-A remplir
 
-## Authors
+### Installation
+1. Pour installer Python, vous pouvez vous rendre sur https://wiki.python.org/moin/BeginnersGuide/Download
+2. Il vous faudra ensuite installer les packages dans votre environnement avec la commande ci-dessous
+   - `pip install -r requirements.txt`
+
+### Usage
+- Pour lancer le web scraping, utilisez dans votre terminal la commande suivante:
+  - `python main.py`
+
+## Features
+- Gestion de la pagination
+- Renommage des images téléchargées avec leur propre code UPC (universal product code)
+- Création des dossiers et sous-dossiers images et csv même s'ils n'existent pas
+
+## Author
 Vpich
