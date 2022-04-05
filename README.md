@@ -11,13 +11,18 @@ Il permet également de télécharger toutes les images de ces livres dans un do
 
 ## Getting Started
 
-### Installation
+### Installation (Windows)
 1. Pour installer Python, vous pouvez vous rendre sur https://wiki.python.org/moin/BeginnersGuide/Download
-2. Il vous faudra ensuite installer les packages dans votre environnement avec la commande ci-dessous
+2. Pour créer un environnement virtuel, saisissez dans votre terminal à l'endroit où vous souhaitez le créer:
+   - `python -m venv env`
+3. Pour activer votre environnement, saisissez:
+   - `source env/Scripts/activate`
+4. Votre environnement est activé et vous devriez voir apparaitre `(env)` à chaque début de ligne
+5. Il vous faudra ensuite installer les packages dans votre environnement avec la commande ci-dessous
    - `pip install -r requirements.txt`
 
 ### Usage
-- Pour lancer le web scraping, utilisez dans votre terminal la commande suivante:
+- Pour exécuter le web scraping, utilisez dans votre terminal la commande suivante:
   - `python main.py`
 
 ## Features
