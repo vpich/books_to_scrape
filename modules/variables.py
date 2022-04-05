@@ -1,6 +1,8 @@
 from bs4 import BeautifulSoup
 import requests
 
+HOME_PAGE_URL = "http://books.toscrape.com/"
+
 
 def get_book_data(product_page_url):
     page = requests.get(product_page_url)
@@ -17,7 +19,7 @@ def get_book_data(product_page_url):
     category = soup.select("li > a")[2].string
     product_description = soup.select_one("article.product_page > p")
     review_rating = soup.find("p", class_="star-rating").get("class")[1]
-    image_url = "http://books.toscrape.com/" + str(soup.find("img").get("src")).replace("../..", "")
+    image_url = HOME_PAGE_URL + str(soup.find("img").get("src")).replace("../..", "")
 
     if product_description is not None:
         product_description = soup.select_one("article.product_page > p").string
