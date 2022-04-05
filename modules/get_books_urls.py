@@ -1,7 +1,7 @@
 from bs4 import BeautifulSoup
 import requests
 
-from .variables import HOME_PAGE_URL
+from modules.variables import HOME_PAGE_URL
 
 
 def get_all_books_urls(category):
