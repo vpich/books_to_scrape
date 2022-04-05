@@ -6,9 +6,9 @@ from modules.get_all_books_urls import get_all_urls_in_dict
 ALL_BOOKS_URLS = get_all_urls_in_dict()
 
 
-def save_all_images_and_csv(all_books_urls):
+def save_all_images_and_csv(all_books_urls_dict):
 
-    for category, books_of_category in all_books_urls.items():
+    for category, books_of_category in all_books_urls_dict.items():
         all_books_list = []
         # def save_all_images_category
         for book_url in books_of_category:
