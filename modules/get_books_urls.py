@@ -1,13 +1,12 @@
 from bs4 import BeautifulSoup
 import requests
 
-home_page_url = "http://books.toscrape.com/"
+from .variables import HOME_PAGE_URL
 
 
 def get_all_books_urls(category):
-
     books_url = []
-    base_category_url = home_page_url + category
+    base_category_url = HOME_PAGE_URL + category
 
     i = 0
     while True:
@@ -16,8 +15,10 @@ def get_all_books_urls(category):
             category_url = base_category_url.replace("index.html", "page-" + str(i) + ".html")
         page = requests.get(category_url)
         if i == 1:
+            # ce cas est redondant avec le cas i = 0
             pass
         if page.status_code != 200:
+            # on a atteint la dernière page
             break
 
         soup = BeautifulSoup(page.content, "html.parser")
@@ -25,7 +26,7 @@ def get_all_books_urls(category):
 
         for book in all_books:
             base_book_url = str(book.get("href")).strip("../../..")
-            book_url = home_page_url + "catalogue/" + base_book_url
+            book_url = HOME_PAGE_URL + "catalogue/" + base_book_url
             if book_url in books_url:
                 break
             books_url.append(book_url)
