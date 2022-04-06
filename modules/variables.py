@@ -5,6 +5,7 @@ HOME_PAGE_URL = "http://books.toscrape.com/"
 
 
 def get_book_data(product_page_url):
+    """ Parse la page d'un produit et renvoie une liste contenant les données pour l'étude de marché """
     page = requests.get(product_page_url)
     soup = BeautifulSoup(page.content, "html.parser")
 
@@ -21,6 +22,7 @@ def get_book_data(product_page_url):
     review_rating = soup.find("p", class_="star-rating").get("class")[1]
     image_url = HOME_PAGE_URL + str(soup.find("img").get("src")).replace("../..", "")
 
+    # Certaines description peuvent être vide, cette condition permet d'éviter le renvoie d'une erreur
     if product_description is not None:
         product_description = soup.select_one("article.product_page > p").string
     else:
