@@ -10,7 +10,7 @@ def get_all_books_urls(category):
     en gérant la pagination.
 
         Parameters:
-            category (str): contient la fin de l'url d'une catégorie
+            category (str): contient la seconde moitié de l'url d'une catégorie
 
         Returns:
             books_url (list): renvoie une liste d'urls (str) de livres
@@ -19,32 +19,29 @@ def get_all_books_urls(category):
     books_url = []
     base_category_url = HOME_PAGE_URL + category
 
-    i = 0
+    i = 1
     while True:
         category_url = base_category_url
         if i > 1:
             category_url = base_category_url.replace("index.html", "page-" + str(i) + ".html")
         page = requests.get(category_url)
-        if i == 1:
-            # ce cas est redondant avec le cas i = 0
-            pass
+
         if page.status_code != 200:
             # on a atteint la dernière page
             break
 
+        page = requests.get(category_url)
         soup = BeautifulSoup(page.content, "html.parser")
         all_books = soup.select("h3 > a")
 
         for book in all_books:
             base_book_url = str(book.get("href")).strip("../../..")
             book_url = HOME_PAGE_URL + "catalogue/" + base_book_url
-            if book_url in books_url:
-                break
             books_url.append(book_url)
         i += 1
     return books_url
 
 
 if __name__ == "__main__":
-    # print(get_all_books_urls("catalogue/category/books/travel_2/index.html"))
+    print(len(get_all_books_urls("catalogue/category/books/add-a-comment_18/index.html")))
     help(get_all_books_urls)
