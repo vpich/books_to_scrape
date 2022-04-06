@@ -1,11 +1,10 @@
 from modules.get_categories_urls import get_categories_urls
 from modules.get_books_urls import get_all_books_urls
-from modules.variables import HOME_PAGE_URL
 
 
 def get_all_urls_in_dict():
-
-    all_categories_urls = get_categories_urls(HOME_PAGE_URL)
+    """ Renvoie un dictionnaire qui, pour chaque clé catégorie, est associée la liste des urls de tous ses livres """
+    all_categories_urls = get_categories_urls()
     all_books_urls = {}
 
     for category_url in all_categories_urls:
