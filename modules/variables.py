@@ -20,7 +20,7 @@ def get_book_data(product_page_url):
     category = soup.select("li > a")[2].string
     product_description = soup.select_one("article.product_page > p")
     review_rating = soup.find("p", class_="star-rating").get("class")[1]
-    image_url = HOME_PAGE_URL + str(soup.find("img").get("src")).replace("../..", "")
+    image_url = HOME_PAGE_URL + str(soup.find("img").get("src")).replace("../../", "")
 
     # Certaines description peuvent être vide, cette condition permet d'éviter le renvoie d'une erreur
     if product_description is not None:
