@@ -4,7 +4,7 @@ import requests
 from modules.variables import HOME_PAGE_URL
 
 
-def get_all_books_urls(category):
+def get_books_urls(category):
     """
     Permet de récupérer une liste des urls de tous les livres contenus dans une catégorie donnée,
     en gérant la pagination.
@@ -43,5 +43,5 @@ def get_all_books_urls(category):
 
 
 if __name__ == "__main__":
-    print(len(get_all_books_urls("catalogue/category/books/add-a-comment_18/index.html")))
-    help(get_all_books_urls)
+    print(len(get_books_urls("catalogue/category/books/add-a-comment_18/index.html")))
+    help(get_books_urls)
