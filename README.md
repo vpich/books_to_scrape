@@ -17,8 +17,7 @@ Il permet également de télécharger toutes les images de ces livres dans un do
    - `python -m venv env`
 3. Pour activer votre environnement, saisissez:
    - `source env/Scripts/activate`
-4. Votre environnement est activé et vous devriez voir apparaitre `(env)` à chaque début de ligne
-5. Il vous faudra ensuite installer les packages dans votre environnement avec la commande ci-dessous
+4. Il vous faudra ensuite installer les packages dans votre environnement avec la commande ci-dessous
    - `pip install -r requirements.txt`
 
 ### Usage
