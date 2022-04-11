@@ -42,7 +42,3 @@ def get_book_data(product_page_url):
     ]
 
     return data
-
-
-if __name__ == "__main__":
-    print(get_book_data("https://books.toscrape.com/catalogue/avatar-the-last-airbender-smoke-and-shadow-part-3-smoke-and-shadow-3_881/index.html"))

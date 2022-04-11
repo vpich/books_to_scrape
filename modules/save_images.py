@@ -12,8 +12,3 @@ def save_images(image_url, upc, directory_name):
 
     with open(f'{image_directory}/{upc}{image_type}', "wb") as f:
         f.write(image)
-
-
-if __name__ == "__main__":
-    save_images("https://books.toscrape.com/media/cache/9f/25/9f25ffe4229a32d1368b3dfe248c3343.jpg", "a897fe39b1053632", "test")
-

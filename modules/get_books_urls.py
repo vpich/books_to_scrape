@@ -23,7 +23,7 @@ def get_books_urls(category):
     while True:
         category_url = base_category_url
         if i > 1:
-            category_url = base_category_url.replace("index.html", "page-" + str(i) + ".html")
+            category_url = base_category_url.replace("index.html", f"page-{i}.html")
         page = requests.get(category_url)
 
         if page.status_code != 200:
@@ -40,8 +40,3 @@ def get_books_urls(category):
             books_url.append(book_url)
         i += 1
     return books_url
-
-
-if __name__ == "__main__":
-    print(len(get_books_urls("catalogue/category/books/add-a-comment_18/index.html")))
-    help(get_books_urls)

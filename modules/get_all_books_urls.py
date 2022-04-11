@@ -14,6 +14,3 @@ def get_all_urls_in_dict():
 
     return all_books_urls
 
-
-if __name__ == "__main__":
-    print(get_all_urls_in_dict())

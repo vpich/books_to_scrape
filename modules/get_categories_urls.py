@@ -17,7 +17,3 @@ def get_categories_urls():
         categories_urls.append(category.get("href"))
 
     return categories_urls
-
-
-if __name__ == "__main__":
-    print(get_categories_urls())
